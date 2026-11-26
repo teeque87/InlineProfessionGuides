@@ -8,6 +8,13 @@ function ns.Print(...)
     print("|cff33ff99IPG|r:", ...)
 end
 
+-- "v0.1.0" in release zips; the repo TOC holds a placeholder the release workflow fills in.
+function ns.Version()
+    local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
+    if not version or version:find("@", 1, true) then return "dev" end
+    return "v" .. version
+end
+
 -- Refresh hub: UI modules register here and are refreshed on profession/skill/recipe changes.
 local refreshers = {}
 function ns.OnRefresh(fn) tinsert(refreshers, fn) end
@@ -90,7 +97,7 @@ SlashCmdList.INLINEPROFESSIONGUIDES = function(msg)
         ns.Refresh()
         return
     end
-    ns.Print(L.ADDON_NAME, "v" .. (C_AddOns.GetAddOnMetadata(addonName, "Version") or "?"))
+    ns.Print(L.ADDON_NAME, ns.Version())
     local count = 0
     for _ in pairs(ns.Guides) do count = count + 1 end
     ns.Print(L.GUIDES_LOADED:format(count))

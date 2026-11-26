@@ -1,6 +1,6 @@
 ## Interface: 16001
 ## Title: Inline Profession Guides
-## Version: 0.1.0
+## Version: @project-version@
 ## Author: Micha
 ## Notes: Shows profession leveling guides inline in the profession window
 ## SavedVariables: IPG_Settings

@@ -1,7 +1,7 @@
 name: Release
 
 # Push a tag like v1.0.0 to build InlineProfessionGuides-v1.0.0.zip and attach it to a GitHub release.
-# The tag must match "## Version:" in InlineProfessionGuides.toc (v1.0.0 <-> 1.0.0), otherwise the run fails.
+# The TOC in the repo says "## Version: @project-version@"; the zip gets the tag's version (v1.0.0 -> 1.0.0).
 # "Run workflow" on the Actions tab builds the zip as a downloadable artifact without releasing.
 on:
   push:
@@ -25,14 +25,8 @@ jobs:
             echo "VERSION=dev-${GITHUB_SHA::7}" >> "$GITHUB_ENV"
           fi
 
-      - name: Check tag matches TOC version
-        if: github.ref_type == 'tag'
-        run: |
-          TOC_VERSION=$(sed -n 's/^## Version: *//p' InlineProfessionGuides/InlineProfessionGuides.toc | tr -d '\r')
-          if [ "v${TOC_VERSION}" != "${VERSION}" ]; then
-            echo "::error::Tag ${VERSION} does not match '## Version: ${TOC_VERSION}' in the TOC. Bump the TOC, commit, and re-tag."
-            exit 1
-          fi
+      - name: Stamp version into the TOC
+        run: sed -i "s/@project-version@/${VERSION#v}/" InlineProfessionGuides/InlineProfessionGuides.toc
 
       - name: Zip addon folder
         run: zip -r "InlineProfessionGuides-${VERSION}.zip" InlineProfessionGuides -x "*.DS_Store" "*Thumbs.db"

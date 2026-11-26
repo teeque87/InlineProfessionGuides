@@ -39,7 +39,7 @@ local function buildPage()
     title:SetText(L.ADDON_NAME)
     local version = page:CreateFontString(nil, "ARTWORK", "GameFontDisableSmall")
     version:SetPoint("LEFT", title, "RIGHT", 8, 0)
-    version:SetText("v" .. (C_AddOns.GetAddOnMetadata(addonName, "Version") or "?"))
+    version:SetText(ns.Version())
 
     local boxes = {}
     for i, option in ipairs(OPTIONS) do
