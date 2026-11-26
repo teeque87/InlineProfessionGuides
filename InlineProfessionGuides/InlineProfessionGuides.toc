@@ -1,0 +1,34 @@
+## Interface: 16001
+## Title: Inline Profession Guides
+## Version: 1.0.0
+## Author: Micha
+## Notes: Shows profession leveling guides inline in the profession window
+## SavedVariables: IPG_Settings
+## SavedVariablesPerCharacter: IPG_CharData
+## OptionalDeps: Auctionator
+
+Locale\enUS.lua
+Core.lua
+Settings.lua
+
+Data\VendorItems.lua
+Data\Alchemy.lua
+Data\Blacksmithing.lua
+Data\Cooking.lua
+Data\Enchanting.lua
+Data\Engineering.lua
+Data\FirstAid.lua
+Data\Leatherworking.lua
+Data\Tailoring.lua
+
+Guide.lua
+Inventory.lua
+Waypoint.lua
+Integrations\Auctionator.lua
+Shopping.lua
+UI\Mark.lua
+UI\RecipeHighlight.lua
+UI\GuidePanel.lua
+UI\Tooltip.lua
+UI\MerchantHighlight.lua
+UI\TrainerHighlight.lua

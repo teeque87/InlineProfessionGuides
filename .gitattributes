@@ -1,0 +1,7 @@
+# Keep LF everywhere (WoW reads either; avoids the CRLF warnings on Windows)
+* text=auto eol=lf
+
+*.blp binary
+*.tga binary
+*.png binary
+*.jpg binary
