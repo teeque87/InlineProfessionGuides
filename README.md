@@ -39,8 +39,7 @@ New files in the TOC need a full game restart, not just `/reload`.
 
 ## Guide data
 
-Addons can't go online, so the guide data ships pre-built in `InlineProfessionGuides/Data/*.lua`. The tool that
-generates it is kept locally and isn't part of this repository.
+Addons can't go online, so the guide data ships pre-built in `InlineProfessionGuides/Data/*.lua`.
 
 ## Sources and credits
 
